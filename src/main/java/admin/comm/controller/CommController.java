@@ -26,8 +26,6 @@ public class CommController {
 	public String main(Model model, HttpSession session) {
 		logger.info("Welcome AkatukiRin Admin Main !");
 		
-		
-		// 1. 권한 체크후, 해당 권한의 메뉴를 가져옴 ( 현재 권한체크로직은 제외 2018.09.29) 해당 권한 체크는 Query 에서 id로 체크
 		String id = "darkhowk";
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("id", id);
