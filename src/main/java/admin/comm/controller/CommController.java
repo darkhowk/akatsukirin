@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import admin.comm.service.CommService;
 
 @Controller
+@RequestMapping("/admin")
 public class CommController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CommController.class);
@@ -22,7 +23,7 @@ public class CommController {
 	@Resource(name="commSerivce")
 	private CommService commService;
 	
-	@RequestMapping("/admin/main")
+	@RequestMapping("/main")
 	public String main(Model model, HttpSession session) {
 		logger.info("Welcome AkatukiRin Admin Main !");
 		
@@ -41,10 +42,10 @@ public class CommController {
 		return "admin/main";
 	}
 	
-	@RequestMapping("/")
+	/*@RequestMapping("/")
 	public String home(Model model) {
 		logger.info("Welcome AkatukiRin Admin Home !");
 		
 		return "/home";
-	}
+	}*/
 }
