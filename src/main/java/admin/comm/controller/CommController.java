@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import admin.comm.service.CommService;
-import comm.util.ARMap;
 
 @Controller
 @RequestMapping("/admin")
