@@ -1,12 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%-- <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> --%>
 <aside class="main-sidebar">
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$(".menu").click(function(){
-		$('#admin').attr("action", this.getAttribute("link")).submit();
+		$("#admin > #selMenu").val(this.getAttribute("no"));
+		$('#admin').attr("method","POST").attr("action", this.getAttribute("link")).submit();
 	});
 });
 </script>
@@ -29,7 +30,9 @@ $(document).ready(function() {
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">${id }</li>
         <!-- Optionally, you can add icons to the links -->
-        <form id="admin" ></form>
+        <form id="admin" >
+        	<input type="hidden" id="selMenu" name="selMenu">
+        </form>
         <c:forEach items="${mainMenu }" var="L1">
         		<li class="treeview">
 		          <a href="#"><i class="fa fa-link"></i> <span>${L1.MENUNAME }</span>
@@ -40,7 +43,7 @@ $(document).ready(function() {
 		          <ul class="treeview-menu">
 		          	<c:forEach items="${subMenu }" var="L2">
 			          	<c:if test="${L1.MENUCATEGORY eq L2.MENUCATEGORY }">
-			           		<li><a href="#" class="menu" link="${L2.MENULINK }">${L2.MENUNAME }</a></li>
+			           		<li><a href="#" class="menu" link="${L2.MENULINK }" no="${L2.SEQ }">${L2.MENUNAME }</a></li>
 			            </c:if>
 		            </c:forEach>
 		          </ul>

@@ -1,22 +1,33 @@
-package admin.comm.advice;
+package comm.util.advice;
 
 import java.util.Arrays;
 
+import javax.servlet.http.HttpSession;
+
+import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+@Component
 @Aspect // AOP bean
 public class LogAdvice {
 
  private static final Logger logger = LoggerFactory.getLogger(LogAdvice.class);
 
- @Around("execution(* admin..controller.*Controller.*(..))"
+ @Around(
+		 "execution(* admin..controller.*Controller.*(..))"
          + " or execution(* admin..service..*Impl.*(..))"
-         + " or execution(* admin..dao.*Dao.*(..))")
+         + " or execution(* admin..dao.*Dao.*(..))"
+         + " or execution(* user..controller..*Controller.*(..))"
+         + " or execution(* user..service..*Impl.*(..))"
+         + " or execution(* user..dao.*Dao.*(..))"
+         + " or execution(* comm..controller..*Controller.*(..))"
+         )
  public Object logPrinnt(ProceedingJoinPoint joinPoint) throws Throwable{
      long start = System.currentTimeMillis();
      Object result = joinPoint.proceed();
@@ -43,4 +54,5 @@ public class LogAdvice {
      }
      return result;
  }
+
 }
