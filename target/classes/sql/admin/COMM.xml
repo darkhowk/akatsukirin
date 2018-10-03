@@ -22,5 +22,6 @@
 			<if test="menuLevel != 0">
 			AND MENULEVEL != '0'
 			</if>
+			AND MENUGBN ='A'
 	</select>
 </mapper>

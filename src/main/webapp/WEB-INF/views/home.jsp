@@ -1282,6 +1282,7 @@
         </div>
       </div>
     </footer>
+  
   </div>
   <!--   Core JS Files   -->
   <script src="${pageContext.request.contextPath}/resources/user/js/jquery.min.js" type="text/javascript"></script>
