@@ -24,7 +24,7 @@ public class CommServiceImpl implements CommService{
 	@Override
 	public HashMap<String, Object> getAdminMenuList(HashMap<String, Object> param) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		// 傍烹 其捞隆 
+		// pageing data
 		param = pageing(param);
 		
 		result.put("param", param);
@@ -36,7 +36,7 @@ public class CommServiceImpl implements CommService{
 	
 	private HashMap<String, Object> pageing(HashMap<String, Object> param) {
 		HashMap<String, Object> result = param;
-		// 其捞隆 贸府 
+		// param data
 		String page = (String) param.get("page");
 		String countPage = (String) param.get("countPage");
 		
