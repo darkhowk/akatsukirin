@@ -24,4 +24,35 @@
 			</if>
 			AND MENUGBN ='A'
 	</select>
+	
+	<select id="getAdminMenuList" parameterType="HashMap" resultType="HashMap">
+		SELECT
+				*
+		FROM (
+				SELECT
+						  A.*
+						, ROWNUM AS RNUM
+						, COUNT (*) OVER() AS TOTCONT
+				FROM (
+						SELECT
+							  SEQ
+							, MENUNAME
+							, MENULEVEL
+							, MENUCATEGORY
+							, MENULINK
+							, MENUAUTH
+							, USEYN
+						FROM 
+							AKATUKIRIN.MENU
+						WHERE 1=1	
+						AND MENUGBN ='A'
+						ORDER BY SEQ ASC
+					) A
+			)
+    	WHERE 1=1
+    		<![CDATA[
+    			AND RNUM >= #{startCount} AND RNUM <= #{endCount}
+    		]]>
+
+	</select>
 </mapper>

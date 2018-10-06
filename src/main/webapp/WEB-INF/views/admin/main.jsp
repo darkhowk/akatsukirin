@@ -13,11 +13,47 @@
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid">
-    
-    	사진?
-
-    </section>
+  <!--   <section class="content container-fluid"> -->
+    	<div class="iframe_wrap row" style="min-height: 839px;">
+    	 	<section class="col-lg-3 connectedSortable ui-sortable">
+				<h2><small>memorandum</small> </h2>		    	
+		    	<iframe class="iframe" src="http://www.memorandum.tk"></iframe>
+		    	
+		    </section>
+    		<section class="col-lg-3 connectedSortable ui-sortable">
+				<h2> <small>akatukirin</small> </h2>
+		    	<iframe class="iframe" src="http://www.akatsukirin.com"></iframe>
+		    </section>
+		   
+		</div>
+   <!--  </section> -->
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+   
+ <style type="text/css">
+ .content-wrapper {
+	width: 100%; height: 100%;
+}
+  .iframe_wrap {
+    width: 180%;
+    min-height: 839px;
+    padding: 0;
+    overflow: hidden;
+}
+.iframe {
+    width: 180%;
+    min-height: 839px;
+    border: 0;
+    -ms-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -ms-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+</style>

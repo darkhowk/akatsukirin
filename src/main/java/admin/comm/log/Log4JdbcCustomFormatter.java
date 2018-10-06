@@ -40,12 +40,19 @@ public class Log4JdbcCustomFormatter extends Slf4jSpyLogDelegator {
             final String subSelectClauseS = "\\(SELECT";
             final String subSelectClauseR = " (SELECT";
             
-            sql = sql.replaceAll("(?i)" + fromClause, "\n " + margin + fromClause);
+            sql = sql.replaceAll("(?i)" + fromClause, "\n "  + fromClause);
+            sql = sql.replaceAll("(?i)" + whereClause, "\n"  + whereClause);
+            sql = sql.replaceAll("(?i)" + andClause, "\n  "  + andClause);
+            sql = sql.replaceAll("(?i)" + orderByClause, "\n"  + orderByClause);
+            sql = sql.replaceAll("(?i)" + groupByClause, "\n"  + groupByClause);
+            sql = sql.replaceAll("(?i)" + subSelectClauseS, "\n      "  + subSelectClauseR);
+            
+          /*  sql = sql.replaceAll("(?i)" + fromClause, "\n " + margin + fromClause);
             sql = sql.replaceAll("(?i)" + whereClause, "\n" + margin + whereClause);
             sql = sql.replaceAll("(?i)" + andClause, "\n  " + margin + andClause);
             sql = sql.replaceAll("(?i)" + orderByClause, "\n" + margin + orderByClause);
             sql = sql.replaceAll("(?i)" + groupByClause, "\n" + margin + groupByClause);
-            sql = sql.replaceAll("(?i)" + subSelectClauseS, "\n      " + margin + subSelectClauseR);
+            sql = sql.replaceAll("(?i)" + subSelectClauseS, "\n      " + margin + subSelectClauseR);*/
         }
         
         if (loggingType == LoggingType.SINGLE_LINE_TWO_COLUMNS) {

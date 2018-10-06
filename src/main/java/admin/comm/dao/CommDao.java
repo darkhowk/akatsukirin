@@ -16,5 +16,9 @@ public class CommDao {
 	public List<HashMap<String, Object>> getMenu(HashMap<String, Object> param) {
 		return session.selectList("COMM.getMenu", param);
 	}
+
+	public List<HashMap<String, Object>> getAdminMenuList(HashMap<String, Object> param) {
+		return session.selectList("COMM.getAdminMenuList", param);
+	}
 	
 }

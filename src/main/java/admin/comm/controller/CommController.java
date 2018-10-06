@@ -54,6 +54,8 @@ public class CommController {
 	public String adminMenuMng(Model model, HttpSession session, @RequestParam HashMap<String, Object> param) {
 		
 		model = getCommData(model, session, param);
+		HashMap<String, Object> data = commService.getAdminMenuList(param);
+		model.addAttribute("data", data);
 		
 		return "admin/adminMenuMng";
 	}
