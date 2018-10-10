@@ -30,9 +30,10 @@
           <span class="navbar-toggler-bar bottom-bar"></span>
         </button>
       </div>
+      
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="${pageContext.request.contextPath}/resources/user/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
-          <li class="nav-item">
+     <!--      <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>Download</p>
@@ -52,6 +53,7 @@
               </a>
             </div>
           </li>
+           -->
         <!--   <li class="nav-item">
             <a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank">
               <i class="now-ui-icons arrows-1_share-66"></i>
@@ -87,7 +89,7 @@
       <div class="page-header-image" data-parallax="true" style="background-image:url('${pageContext.request.contextPath}/resources/user/img/main_visual.png');">
       </div>
     </div>
-    <div class="main">
+ <!--    <div class="main">
       <div class="section section-basic" id="basic-elements">
         <div class="container">
           <h3 class="title">Basic Elements</h3>
@@ -338,9 +340,9 @@
           <h4>Navigation</h4>
         </div>
         <div id="navbar">
-          <div class="navigation-example" style="background-image:url('${pageContext.request.contextPath}/resources/user/img/bg7.jpg')">
+          <div class="navigation-example" style="background-image:url('${pageContext.request.contextPath}/resources/user/img/bg7.jpg')"> -->
             <!-- Navbar Primary  -->
-            <nav class="navbar navbar-expand-lg bg-primary">
+      <!--      <nav class="navbar navbar-expand-lg bg-primary">
               <div class="container">
                 <div class="navbar-translate">
                   <a class="navbar-brand" href="#pablo">Primary color</a>
@@ -373,10 +375,10 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> --> 
             <!-- End Navbar Primary -->
             <!-- Navbar Info -->
-            <nav class="navbar navbar-expand-lg bg-info">
+       <!-- <nav class="navbar navbar-expand-lg bg-info">
               <div class="container">
                 <div class="navbar-translate">
                   <a class="navbar-brand" href="#pablo">Info Color</a>
@@ -406,10 +408,10 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> -->     
             <!-- End Navbar Info -->
             <!-- Navbar Success -->
-            <nav class="navbar navbar-expand-lg bg-success">
+           <!--     <nav class="navbar navbar-expand-lg bg-success">
               <div class="container">
                 <div class="navbar-translate">
                   <a class="navbar-brand" href="#">Success Color</a>
@@ -439,10 +441,10 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> -->
             <!-- End Navbar Success -->
             <!-- Navbar Warning -->
-            <nav class="navbar navbar-expand-lg bg-warning">
+         <!--       <nav class="navbar navbar-expand-lg bg-warning">
               <div class="container">
                 <div class="navbar-translate">
                   <a class="navbar-brand" href="#pablo">Warning Color</a>
@@ -477,10 +479,10 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> -->
             <!-- End Navbar Warning -->
             <!-- Navbar Danger -->
-            <nav class="navbar navbar-expand-lg bg-danger">
+           <!--     <nav class="navbar navbar-expand-lg bg-danger">
               <div class="container">
                 <div class="navbar-translate">
                   <a class="navbar-brand" href="#pablo">Danger Color</a>
@@ -513,10 +515,10 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> -->
             <!-- End Navbar Danger -->
             <!-- Navbar Transparent -->
-            <nav class="navbar navbar-expand-lg navbar-transparent">
+           <!--     <nav class="navbar navbar-expand-lg navbar-transparent">
               <div class="container">
                 <div class="navbar-translate">
                   <a class="navbar-brand" href="#pablo">Transparent</a>
@@ -549,19 +551,19 @@
                   </ul>
                 </div>
               </div>
-            </nav>
+            </nav> -->
             <!-- End Navbar Transparent-->
-          </div>
+         <!--     </div>
         </div>
-      </div>
+      </div> -->
       <!-- End .section-navbars  -->
-      <div class="section section-tabs">
+   <!--      <div class="section section-tabs">
         <div class="container">
           <div class="row">
             <div class="col-md-10 ml-auto col-xl-6 mr-auto">
-              <p class="category">Tabs with Icons on Card</p>
+              <p class="category">Tabs with Icons on Card</p> -->
               <!-- Nav tabs -->
-              <div class="card">
+         <!--        <div class="card">
                 <div class="card-header">
                   <ul class="nav nav-tabs justify-content-center" role="tablist">
                     <li class="nav-item">
@@ -586,9 +588,9 @@
                     </li>
                   </ul>
                 </div>
-                <div class="card-body">
+                <div class="card-body">-->
                   <!-- Tab panes -->
-                  <div class="tab-content text-center">
+              <!--       <div class="tab-content text-center">
                     <div class="tab-pane active" id="home" role="tabpanel">
                       <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
                     </div>
@@ -608,9 +610,9 @@
               </div>
             </div>
             <div class="col-md-10 ml-auto col-xl-6 mr-auto">
-              <p class="category">Tabs with Background on Card</p>
+              <p class="category">Tabs with Background on Card</p> -->
               <!-- Tabs with Background on Card -->
-              <div class="card">
+           <!--      <div class="card">
                 <div class="card-header">
                   <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
                     <li class="nav-item">
@@ -627,9 +629,9 @@
                     </li>
                   </ul>
                 </div>
-                <div class="card-body">
+                <div class="card-body">-->
                   <!-- Tab panes -->
-                  <div class="tab-content text-center">
+             <!--     <div class="tab-content text-center">
                     <div class="tab-pane active" id="home1" role="tabpanel">
                       <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
                     </div>
@@ -648,12 +650,12 @@
                 </div>
               </div>
               <!-- End Tabs on plain Card -->
-            </div>
+       <!--     </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- End Section Tabs -->
-      <div class="section section-pagination">
+ <!--     <div class="section section-pagination">
         <div class="container">
           <div class="row">
             <div class="col-md-6">
@@ -808,10 +810,10 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
       <!--  end notifications -->
       <!-- Typography -->
-      <div class="section">
+  <!--     <div class="section">
         <div class="container">
           <h3 class="title">Typography</h3>
           <div id="typography">
@@ -1025,19 +1027,19 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="section section-nucleo-icons">
+      </div>-->
+   <!--   <div class="section section-nucleo-icons">
         <div class="container">
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <h2 class="title">Nucleo Icons</h2>
               <h5 class="description">
                 Now UI Kit PRO comes with 100 custom icons made by our friends from NucleoApp. The official package contains over 2.100 thin icons which are looking great in combination with Now UI Kit PRO Make sure you check all of them and use those that you like the most.
-              </h5>
+              </h5> -->  
               <!-- <div class="nucleo-container">
 							<img src="assets/img/nucleo.svg" alt="">
 						</div> -->
-              <a href="nucleo-icons.html" class="btn btn-primary btn-round btn-lg" target="_blank">View Demo Icons</a>
+        <!--       <a href="nucleo-icons.html" class="btn btn-primary btn-round btn-lg" target="_blank">View Demo Icons</a>
               <a href="https://nucleoapp.com/?ref=1712" class="btn btn-primary btn-simple btn-round btn-lg" target="_blank">View All Icons</a>
             </div>
             <div class="col-lg-6 col-md-12">
@@ -1071,8 +1073,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="section section-signup" style="background-image: url('${pageContext.request.contextPath}/resources/user/img/bg11.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+      </div> -->  
+     <!-- <div class="section section-signup" style="background-image: url('${pageContext.request.contextPath}/resources/user/img/bg11.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
         <div class="container">
           <div class="row">
             <div class="card card-signup" data-background-color="orange">
@@ -1115,7 +1117,7 @@
                       </span>
                     </div>
                     <input type="text" class="form-control" placeholder="Email...">
-                  </div>
+                  </div> -->  
                   <!-- If you want to add a checkbox to this form, uncomment this code -->
                   <!-- <div class="checkbox">
 								<input id="checkboxSignup" type="checkbox">
@@ -1123,7 +1125,7 @@
 									Unchecked
 									</label>
 								</div> -->
-                </div>
+        <!--       </div>
                 <div class="card-footer text-center">
                   <a href="#pablo" class="btn btn-neutral btn-round btn-lg">Get Started</a>
                 </div>
@@ -1208,9 +1210,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Sart Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <!--  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
@@ -1229,10 +1231,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--  End Modal -->
     <!-- Mini Modal -->
-    <div class="modal fade modal-mini modal-primary" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <!--   <div class="modal fade modal-mini modal-primary" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
@@ -1249,36 +1251,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <!--  End Modal -->
     <footer class="footer" data-background-color="black">
       <div class="container">
-        <nav>
-          <ul>
-            <li>
-              <a href="https://www.creative-tim.com">
-                Creative Tim
-              </a>
-            </li>
-            <li>
-              <a href="http://presentation.creative-tim.com">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="http://blog.creative-tim.com">
-                Blog
-              </a>
-            </li>
-          </ul>
-        </nav>
         <div class="copyright" id="copyright">
           &copy;
           <script>
             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-          </script>, Designed by
-          <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-          <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+          </script>, Create by DarkHowk For AkatukiRin.
         </div>
       </div>
     </footer>

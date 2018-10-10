@@ -18,6 +18,8 @@
 		<div class="box">
 			<div class="box-header">
 				<h3 class="box-title">${selMenu }</h3>
+				<button type="button" class="btn btn-primary pull-right add">추가</button>
+                <button type="button" class="btn btn-primary pull-right submit">저장</button>
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
@@ -29,11 +31,11 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
-							<table id="example2"
-								class="table table-bordered table-hover dataTable" role="grid"
-								aria-describedby="example2_info">
+							<form id="menu">
+							<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
 								<thead>
 									<tr role="row">
+										<th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Delete</th>
 										<th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SEQ">SEQ</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuName">메뉴 이름</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuLevel">메뉴 레벨</th>
@@ -44,18 +46,39 @@
 									</tr>
 								</thead>
 								<tbody>
-									<c:forEach items="${data.list }" var="list">
-									<tr role="row" class="odd">
-										<td class="sorting_1">${list.SEQ }</td>
-										<td>${list.MENUNAME }</td>
-										<td>${list.MENULEVEL }</td>
-										<td>${list.MENUCATEGORY }</td>
-										<td>${list.MENULINK }</td>
-										<td>${list.MENUAUTH }</td>
-										<td>${list.USEYN }</td>
-									</tr>
-									</c:forEach>
+										<c:forEach items="${data.list }" var="list">
+										<tr role="row" class="odd">
+											<td>
+												<input type="checkbox" class="delete">
+												<input type="hidden" id="CURD" name="CURD" value="R">
+											</td>
+											<td class="sorting_1">
+												<input type="text" id="SEQ" name="SEQ" value="${list.SEQ }" tabindex="0">
+											</td>
+											<td>
+												<input type="text" id="MENUNAME" name="MENUNAME" value="${list.MENUNAME }" tabindex="1">
+											</td>
+											<td>
+												<input type="text" id="MENULEVEL" name="MENULEVEL" value="${list.MENULEVEL }" tabindex="2">
+											</td>
+											<td>
+												<input type="text" id="MENUCATEGORY" name="MENUCATEGORY" value="${list.MENUCATEGORY }" tabindex="3">
+											</td>
+											<td>
+												<input type="text" id="MENULINK" name="MENULINK" value="${list.MENULINK }"  tabindex="4">
+											</td>
+											<td>
+												<input type="text" id="MENUAUTH" name="MENUAUTH" value="${list.MENUAUTH }"  tabindex="5">
+											</td>
+											<td>
+												<input type="text" id="USEYN" name="USEYN" value="${list.USEYN }" tabindex="6">
+											</td>
+										</tr>
+										
+										</c:forEach>
+								</tbody>
 							</table>
+							</form>
 						</div>
 					</div>
 					<div class="row">
@@ -111,16 +134,85 @@
 	<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-<!-- page script -->
-<script>
-	$(function() {
-		$('#example2').DataTable({
-			'paging' : true,
-			'lengthChange' : false,
-			'searching' : false,
-			'ordering' : true,
-			'info' : true,
-			'autoWidth' : false
-		})
-	})
+<style type="text/css"> 
+	input{     
+ 		border: none; 
+ 		background: transparent;
+	} 
+</style>
+<script type="text/javascript">
+	$(function(){
+	    $('input[type="text"]').on('change', function() {
+	    	var new_value = $(this).val();
+	    	var old_value = $(this).prop("defaultValue")
+	    	if (new_value != old_value){
+	    		this.parentElement.parentElement.setAttribute("style", "background:pink");
+	    		$(this).parent().find("input[id=CRUD]")[0].value = "U";
+	    	}
+	    });
+	    $('.delete').click(function(){
+	    	var _this = $(this);
+	    		if (_this.prop("checked")){
+	    			if (_this.parent().find("input[id=CURD]")[0].value == "N"){
+	    				_this.parent().remove();
+	    			}
+	    			else{
+	    				this.parentElement.parentElement.setAttribute("style", "background:gray");
+	    				_this.parent().find("input[id=CRUD]")[0].value = "D";
+	    			}
+	    		}
+	    		else{
+	    			this.parentElement.parentElement.removeAttribute("style");
+		    		this.parentElement.parentElement.removeAttribute("crud");
+		    		_this.parent().find("input[id=CRUD]")[0].value = "R";
+	    		}
+	    });
+	    $('.add').click(function(){
+	    	var inner = '<tr role="row" class="odd">'
+					  + '<td>'
+					  + '<input type="checkbox" class="delete">'
+					  + '<input type="hidden" id="CURD" name="CURD" >';
+					  + '</td>'
+					  + '<td class="sorting_1">'
+					  + '<input type="text" id="SEQ" name="SEQ" tabindex="0">'
+					  + '</td>'
+					  + '<td>'
+					  + '<input type="text" id="MENUNAME" name="MENUNAME" tabindex="1">'
+					  + '</td>'
+					  + '<td>'
+					  + '<input type="text" id="MENULEVEL" name="MENULEVEL" tabindex="2">'
+					  + '</td>'
+					  + '<td>'
+					  + '<input type="text" id="MENUCATEGORY" name="MENUCATEGORY" tabindex="3">'
+					  + '</td>'
+					  + '<td>'
+					  + '<input type="text" id="MENULINK" name="MENULINK" tabindex="4">'
+					  + '</td>'
+					  + '<td>'
+					  + '<input type="text" id="MENUAUTH" name="MENUAUTH" tabindex="5">'
+					  + '</td>'
+					  + '<td>'
+					  + '<input type="text" id="USEYN" name="USEYN" tabindex="6">'
+					  + '</td>'
+					  + '</tr>';
+					  
+	    	 $('#example2 > tbody:last').append(inner);
+   		});
+	    $( document ).ready(function() {
+		    $('.submit').click(function(){
+		    	 var params = $("#menu").serializeArray(); // serialize() : 입력된 모든Element(을)를 문자열의 데이터에 serialize 한다.
+		    	 $.ajax({   
+				    	   type: "POST"  
+				    	  ,url: "/admin/ajax/adminmenu"
+				    	  ,data: params
+				    	  ,success:function(data){
+				    		  console.log("succ" , data);
+				    	  }
+				    	  ,error:function(data){
+				    		  console.log("err" , data);
+				    	  }
+		    	  });
+	    	});
+	    });
+	});
 </script>

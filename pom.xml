@@ -155,11 +155,6 @@
         </dependency>
         
         <!-- ojdbc6 -->
-<!--         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.1.0.7.0</version>
-        </dependency> -->
         <dependency>
 	        <groupId>com.oracle</groupId>
 	        <artifactId>ojdbc6</artifactId>
@@ -185,6 +180,13 @@
             <artifactId>spring-test</artifactId>
             <version>4.1.7.RELEASE</version>
         </dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.9.13</version>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
