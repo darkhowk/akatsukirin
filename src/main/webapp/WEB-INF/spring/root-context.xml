@@ -16,8 +16,8 @@
 	<!-- data soruce -->
 	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="url" value="jdbc:oracle:thin:@memorandum.tk:1521:xe" />
-        <property name="username" value="akatsukirin" />
+        <property name="url" value="jdbc:oracle:thin:@memorandum.tk:329:xe" />
+        <property name="username" value="AKATSUKIRIN" />
         <property name="password" value="V9gmuHsA" />
     </bean>
   

@@ -1,3 +1,4 @@
+DROP TABLE MENU;
 CREATE TABLE 
 	MENU (
 		  SEQ VARCHAR2(200) PRIMARY KEY
@@ -6,6 +7,7 @@ CREATE TABLE
 		, MENUCATEGORY VARCHAR2(100) NOT NULL
 		, MENULINK VARCHAR2(100)
 		, MENUAUTH CHAR(1) NOT NULL
+		, MENUGBN char(1) NOT NULL 
 		, USEYN CHAR(1) NOT NULL
 		, CREATEDATE TIMESTAMP NOT NULL
 		, CREATEUSER VARCHAR2(100) NOT NULL
@@ -22,6 +24,7 @@ INSERT INTO
 		, MENUCATEGORY
 		, MENULINK
 		, MENUAUTH
+		, MENUGBN
 		, USEYN
 		, CREATEDATE
 		, CREATEUSER
@@ -29,11 +32,12 @@ INSERT INTO
 		, UPDATEUSER
 		) VALUES (
 		  '1'
-		, '관리자 설정'
+		, '메뉴 관리'
 		, '0'
-		, 'Admin Setting'
+		, 'MENU MANEGE'
 		, ''
 		, '0'
+		, 'A'
 		, 'Y'
 		, SYSDATE
 		, 'darkhowk'
@@ -50,34 +54,7 @@ INSERT INTO
 		, MENUCATEGORY
 		, MENULINK
 		, MENUAUTH
-		, USEYN
-		, CREATEDATE
-		, CREATEUSER
-		, UPDATEDATE
-		, UPDATEUSER
-		) VALUES (
-		  '1'
-		, '메뉴관리'
-		, '1'
-		, 'Admin Setting'
-		, ''
-		, '0'
-		, 'Y'
-		, SYSDATE
-		, 'darkhowk'
-		, SYSDATE
-		, 'darkhowk'
-		)
-;
-
-INSERT INTO 
-	MENU (
-		  SEQ
-		, MENUNAME
-		, MENULEVEL
-		, MENUCATEGORY
-		, MENULINK
-		, MENUAUTH
+		, MENUGBN
 		, USEYN
 		, CREATEDATE
 		, CREATEUSER
@@ -85,11 +62,12 @@ INSERT INTO
 		, UPDATEUSER
 		) VALUES (
 		  '2'
-		, '관리자 관리'
+		, '관리자 메뉴'
 		, '1'
-		, 'Admin Setting'
-		, ''
+		, 'MENU MANEGE'
+		, '/admin/adminMenuMng'
 		, '0'
+		, 'A'
 		, 'Y'
 		, SYSDATE
 		, 'darkhowk'
@@ -106,6 +84,7 @@ INSERT INTO
 		, MENUCATEGORY
 		, MENULINK
 		, MENUAUTH
+		, MENUGBN
 		, USEYN
 		, CREATEDATE
 		, CREATEUSER
@@ -113,11 +92,12 @@ INSERT INTO
 		, UPDATEUSER
 		) VALUES (
 		  '3'
-		, '사용자 관리'
+		, '사용자 메뉴'
 		, '1'
-		, 'Admin Setting'
-		, ''
+		, 'MENU MANEGE'
+		, '/admin/userMenuMng'
 		, '0'
+		, 'A'
 		, 'Y'
 		, SYSDATE
 		, 'darkhowk'
@@ -127,13 +107,7 @@ INSERT INTO
 ;	
 ---------------------------------------------------------------
 SELECT
-	  SEQ
-	, MENUNAME
-	, MENULEVEL
-	, MENUCATEGORY
-	, MENULINK
-	, MENUAUTH
-	, USEYN
+	*
 FROM 
 	akatsukirin.MENU
 WHERE 1=1
