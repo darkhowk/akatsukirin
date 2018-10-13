@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Akatukirin Admin Main
+        akatsukirin Admin Main
         <small>아카츠키린 관리자 메인</small>
       </h1>
       <ol class="breadcrumb">
@@ -21,7 +21,7 @@
 		    	
 		    </section>
     		<section class="col-lg-3 connectedSortable ui-sortable">
-				<h2> <small>akatukirin</small> </h2>
+				<h2> <small>akatsukirin</small> </h2>
 		    	<iframe class="iframe" src="http://www.akatsukirin.com"></iframe>
 		    </section>
 		   

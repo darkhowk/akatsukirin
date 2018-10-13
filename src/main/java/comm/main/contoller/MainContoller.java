@@ -18,7 +18,7 @@ public class MainContoller {
 	
 	@RequestMapping("/")
 	public String main(Model model, HttpSession session) {
-		logger.info("Welcome AkatukiRin Admin Main !");
+		logger.info("Welcome akatsukirin Admin Main !");
 		
 		return "/home";
 	}

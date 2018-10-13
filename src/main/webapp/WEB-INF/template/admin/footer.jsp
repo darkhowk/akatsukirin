@@ -4,7 +4,7 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      for Akatukirin
+      for akatsukirin
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 from <a href="#">darkhowk</a>.</strong> All rights reserved.

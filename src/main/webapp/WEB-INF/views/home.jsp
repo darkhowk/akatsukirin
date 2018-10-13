@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    AkatukiRin Korea Fan
+    akatsukirin Korea Fan
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -22,7 +22,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="http://memorandum.tk" rel="tooltip" title="Make by DarkHowk" data-placement="bottom" target="_blank">
-          AkatukiRin Korea Fan Page
+          akatsukirin Korea Fan Page
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-bar top-bar"></span>
@@ -61,20 +61,20 @@
             </a>
           </li> -->
            <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="AkatukiRin Official Web Page" data-placement="bottom" href="http://www.akatsukirin.com/" target="_blank">
+            <a class="nav-link" rel="tooltip" title="akatsukirin Official Web Page" data-placement="bottom" href="http://www.akatsukirin.com/" target="_blank">
               <i class="now-ui-icons ui-2_favourite-28"></i>
               <p class="d-lg-none d-xl-none">Official</p>
             </a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Follow AkatukiRin on Twitter" data-placement="bottom" href="https://twitter.com/tsukirin0329" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Follow akatsukirin on Twitter" data-placement="bottom" href="https://twitter.com/tsukirin0329" target="_blank">
               <i class="fab fa-twitter"></i>
               <p class="d-lg-none d-xl-none">Twitter</p>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="Subscribe AkatukiRin on Youtube" data-placement="bottom" href="https://www.youtube.com/channel/UCXcJVQlczdNJX5LAwvOvENA" target="_blank">
+            <a class="nav-link" rel="tooltip" title="Subscribe akatsukirin on Youtube" data-placement="bottom" href="https://www.youtube.com/channel/UCXcJVQlczdNJX5LAwvOvENA" target="_blank">
               <i class="fab fa-youtube-square"></i>
               <p class="d-lg-none d-xl-none">Youtube</p>
             </a>
@@ -1259,7 +1259,7 @@
           &copy;
           <script>
             document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-          </script>, Create by DarkHowk For AkatukiRin.
+          </script>, Create by DarkHowk For akatsukirin.
         </div>
       </div>
     </footer>

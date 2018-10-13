@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-sources>
 	<data-source id="oracle_thin-16621cba14d-3888110639fd7c98" provider="oracle" driver="oracle_thin" name="Oracle - xe" save-password="true" show-system-objects="true" show-util-objects="true" read-only="false">
-		<connection host="memorandum.tk" port="1521" server="" database="xe" url="jdbc:oracle:thin:@memorandum.tk:1521:xe" user="akatukirin" password="JV0BLVRrVzdl8w==" type="dev">
+		<connection host="memorandum.tk" port="1521" server="" database="xe" url="jdbc:oracle:thin:@memorandum.tk:1521:xe" user="akatsukirin" password="JV0BLVRrVzdl8w==" type="dev">
 			<provider-property name="@dbeaver-sid-service@" value="SID"/>
 			<provider-property name="@dbeaver-use-rule-hint@" value="false"/>
 			<provider-property name="@dbeaver-connection-type@" value="BASIC"/>
