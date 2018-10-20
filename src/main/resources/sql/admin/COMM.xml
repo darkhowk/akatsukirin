@@ -53,6 +53,5 @@
     		<![CDATA[
     			AND RNUM >= #{startCount} AND RNUM <= #{endCount}
     		]]>
-
 	</select>
 </mapper>
