@@ -13,7 +13,7 @@
 			, MENUAUTH
 			, USEYN
 		FROM 
-			akatsukirin.MENU
+			MENU
 		WHERE 1=1
 			AND USEYN = 'Y'
 			<if test="menuLevel == 0">
@@ -43,7 +43,7 @@
 							, MENUAUTH
 							, USEYN
 						FROM 
-							akatsukirin.MENU
+							MENU
 						WHERE 1=1	
 						AND MENUGBN ='A'
 						ORDER BY SEQ ASC

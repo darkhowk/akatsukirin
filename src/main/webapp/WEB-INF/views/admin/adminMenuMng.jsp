@@ -200,12 +200,13 @@
    		});
 	    $( document ).ready(function() {
 		    $('.submit').click(function(){
-		    	 var params = $("#menu").serializeArray(); // serialize() : 입력된 모든Element(을)를 문자열의 데이터에 serialize 한다.
+		    	 var params = $("#menu").serialize(); // serialize() : 입력된 모든Element(을)를 문자열의 데이터에 serialize 한다.
 		    	 $.ajax({   
 				    	   type: "POST"  
 				    	  ,url: "/admin/ajax/adminmenu"
 				    	  ,data: params
 				    	  ,success:function(data){
+				    		  console.log(params);
 				    		  console.log("succ" , data);
 				    	  }
 				    	  ,error:function(data){
