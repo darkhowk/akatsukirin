@@ -17,7 +17,7 @@
 		WHERE 1=1
 			AND USEYN = 'Y'
 			<if test="menuLevel == 0">
-			AND MENULEVEL = #{menuLevel }
+			AND MENULEVEL = '0'
 			</if>
 			<if test="menuLevel != 0">
 			AND MENULEVEL != '0'
