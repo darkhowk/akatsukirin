@@ -1,8 +1,5 @@
 package oni.comm.controller;
 
-import java.util.HashMap;
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -17,9 +14,9 @@ import admin.comm.service.CommService;
 
 @Controller
 @RequestMapping("/oni")
-public class CommController {
+public class OniCommController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(CommController.class);
+	private static final Logger logger = LoggerFactory.getLogger(OniCommController.class);
 	
 	@Resource(name="commSerivce")
 	private CommService commService;
@@ -27,7 +24,6 @@ public class CommController {
 	
 	@RequestMapping("/main")
 	public String main(Model model, HttpSession session) {
-		
 		
 		return "oni/main";
 	}

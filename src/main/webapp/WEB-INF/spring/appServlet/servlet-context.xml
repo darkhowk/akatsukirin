@@ -19,7 +19,10 @@
 	<resources mapping="/admin/bower_components/**" location="/resources/admin/bower_components/"/>
 	<resources mapping="/admin/plugins/**" location="/resources/admin/plugins/"/>
 	<resources mapping="/admin/dist/**" location="/resources/admin/dist/"/>
-
+	<resources mapping="/oni/bower_components/**" location="/resources/admin/bower_components/"/>
+	<resources mapping="/oni/plugins/**" location="/resources/admin/plugins/"/>
+	<resources mapping="/oni/dist/**" location="/resources/admin/dist/"/>
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -47,6 +50,7 @@
 	<context:component-scan base-package="admin.**.**" />
 	<context:component-scan base-package="user.**.**" />
 	<context:component-scan base-package="comm.**.**" />
+	<context:component-scan base-package="oni.**.**" />
 	
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<aop:config proxy-target-class="true" /> 
