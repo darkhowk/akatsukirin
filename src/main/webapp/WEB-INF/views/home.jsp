@@ -12,8 +12,8 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- CSS Files -->
-  <link href="${pageContext.request.contextPath}/resources/user/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="${pageContext.request.contextPath}/resources/user/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
+  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" />
+  <link href="${pageContext.request.contextPath}/resources/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -31,7 +31,7 @@
         </button>
       </div>
       
-      <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="${pageContext.request.contextPath}/resources/user/img/blurred-image-1.jpg">
+      <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="${pageContext.request.contextPath}/resources/image/blurred-image-1.jpg">
         <ul class="navbar-nav">
      <!--      <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
@@ -86,7 +86,7 @@
   <!-- End Navbar -->
   <div class="wrapper">
     <div class="page-header clear-filter" filter-color="white">
-      <div class="page-header-image" data-parallax="true" style="background-image:url('${pageContext.request.contextPath}/resources/user/img/main_visual.png');">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('${pageContext.request.contextPath}/resources/image/main_visual.png');">
       </div>
     </div>
  <!--    <div class="main">
@@ -1266,19 +1266,19 @@
   
   </div>
   <!--   Core JS Files   -->
-  <script src="${pageContext.request.contextPath}/resources/user/js/jquery.min.js" type="text/javascript"></script>
-  <script src="${pageContext.request.contextPath}/resources/user/js/popper.min.js" type="text/javascript"></script>
-  <script src="${pageContext.request.contextPath}/resources/user/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/popper.min.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js" type="text/javascript"></script>
   <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-  <script src="${pageContext.request.contextPath}/resources/user/js/bootstrap-switch.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-switch.js"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="${pageContext.request.contextPath}/resources/user/js/nouislider.min.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/nouislider.min.js" type="text/javascript"></script>
   <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
-  <script src="${pageContext.request.contextPath}/resources/user/js/bootstrap-datepicker.js" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
  <!--  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
   <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
-  <script src="${pageContext.request.contextPath}/resources/user/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
   <script>
     $(document).ready(function() {
       // the body of this function is in assets/js/now-ui-kit.js
