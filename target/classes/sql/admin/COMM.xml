@@ -5,24 +5,19 @@
 <mapper namespace="COMM">
 	<select id="getMenu" parameterType="HashMap" resultType="HashMap">
 		SELECT
-			  SEQ
-			, MENUNAME
-			, MENULEVEL
-			, MENUCATEGORY
-			, MENULINK
-			, MENUAUTH
-			, USEYN
-		FROM 
-			MENU
+			  A.NAME
+			, B.LINK || A.LINK AS LINK
+			, A.MENULEVEL
+		FROM
+			MENU A JOIN CATEGORY B ON A.CATEGORYCODE = B.CODE 
 		WHERE 1=1
-			AND USEYN = 'Y'
+			AND A.USEYN = 'Y'
 			<if test="menuLevel == 0">
-			AND MENULEVEL = '0'
+			AND A.PARENTCODE IS NULL
 			</if>
 			<if test="menuLevel != 0">
-			AND MENULEVEL != '0'
+			AND A.PARENTCODE IS NOT NULL
 			</if>
-			AND MENUGBN ='A'
 	</select>
 	
 	<select id="getAdminMenuList" parameterType="HashMap" resultType="HashMap">

@@ -3,5 +3,5 @@
 <title>akatsukirin Admin</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<%@include file="css.jsp"%>
-<%@include file="js.jsp"%>
+<%@include file="../comm/css.jsp"%>
+<%@include file="../comm/js.jsp"%>
