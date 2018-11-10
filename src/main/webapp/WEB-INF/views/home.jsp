@@ -159,8 +159,7 @@
               randomnum = Math.random() * 0xffffff; // 랜덤하게 16진수 뽑기
               randomnum = parseInt(randomnum); // 정수로 변환
               randomnum = randomnum.toString(16);
-              id="navigation" data-nav-image
-              $("#navigation").css({"background":"url()");
+              $("#navigation").css({"background":"url(${pageContext.request.contextPath}/resources/img/main_visual.png)");
 
           },5000); // 5초마다 실행 (100 = 0.1초, 1000 = 1초)
 		});
