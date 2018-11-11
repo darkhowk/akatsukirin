@@ -42,9 +42,7 @@
 	</beans:bean>
     
 	<context:component-scan base-package="admin.**.**" />
-	<context:component-scan base-package="user.**.**" />
-	<context:component-scan base-package="comm.**.**" />
-	<context:component-scan base-package="oni.**.**" />
+	<context:component-scan base-package="main.**.**" />
 	
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	<aop:config proxy-target-class="true" /> 
