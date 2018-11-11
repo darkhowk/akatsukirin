@@ -29,14 +29,13 @@
 						<div class="col-sm-6"></div>
 					</div>
 					<div class="row">
-						<div class="col-sm-12">
+						<div class="col-sm-16">
 							<form id="menu">
 							<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
 								<thead>
 									<tr role="row">
 										<th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Delete</th>
 										<th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SEQ">SEQ</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CATEGORYCODE">카테고리 코드</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CATEGORYNAME">카테고리명</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CODE">코드</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="NAME">메뉴명</th>
@@ -65,9 +64,6 @@
 												<input type="text" id="SEQ" name="SEQ" value="${list.SEQ }" tabindex="0">
 											</td>
 											<td>
-												<input type="text" id="CATEGORYCODE" name="CATEGORYCODE" value="${list.CATEGORYCODE }" tabindex="1">
-											</td>
-											<td>
 												<input type="text" id="CATEGORYNAME" name="CATEGORYNAME" value="${list.CATEGORYNAME }" tabindex="2">
 											</td>
 											<td>
@@ -81,9 +77,6 @@
 											</td>
 											<td>
 												<input type="text" id="MENULEVEL" name="MENULEVEL" value="${list.MENULEVEL }" tabindex="6">
-											</td>
-											<td>
-												<input type="text" id="PARENTCODE" name="PARENTCODE" value="${list.PARENTCODE }" tabindex="6">
 											</td>
 											<td>
 												<input type="text" id="PARENTNAME" name="PARENTNAME" value="${list.PARENTNAME }" tabindex="6">
