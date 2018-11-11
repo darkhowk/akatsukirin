@@ -11,4 +11,6 @@ public interface AdminService {
 
 	HashMap<String, Object> getCategoryList(HashMap<String, Object> param);
 
+	String getPath(String a);
+
 }

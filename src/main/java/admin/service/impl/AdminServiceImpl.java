@@ -39,4 +39,10 @@ public class AdminServiceImpl implements AdminService{
 		result.put("list", adminDao.getCategoryList(param));
 		return result;
 	}
+
+	@Override
+	public String getPath(String a)
+	{
+		return adminDao.getPath(a);
+	}
 }

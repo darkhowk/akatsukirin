@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.util.JSONPObject;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.HandlerMapping;
 
 import admin.service.AdminService;
 
@@ -29,40 +31,42 @@ public class AdminController {
 	private AdminService adminService;
 	
 	@RequestMapping("/main")
-	public String main(Model model, HttpSession session, @RequestParam HashMap<String, Object> param) {
+	public String main(Model model, HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
 		logger.info("Welcome Memorandum Admin Main !");
 		
 		param.put("category", "admin");
 		List<HashMap<String, Object>> menu = adminService.getMenu(param);
 		//model.addAttribute("id", param.get("id"));
 		model.addAttribute("menu", adminMenu());
+		model.addAttribute("path", path(request));
 		
 		return "admin/main";
 	}
 	
 	@RequestMapping("/menu")
-	public String menu(Model model, HttpSession session, @RequestParam HashMap<String, Object> param) {
+	public String menu(Model model, HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
 		
 		HashMap<String, Object> data = adminService.getMenuList(param);
 		model.addAttribute("data", data);
 		model.addAttribute("menu", adminMenu());
+		model.addAttribute("path", path(request));
 		
 		return "admin/menu";
 	}
 	
 	@RequestMapping("/category")
-	public String category(Model model, HttpSession session, @RequestParam HashMap<String, Object> param) {
-		
+	public String category(Model model, HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
 		HashMap<String, Object> data = adminService.getCategoryList(param);
 		model.addAttribute("data", data);
 		model.addAttribute("menu", adminMenu());
+		model.addAttribute("path", path(request));
 		
 		return "admin/category";
 	}
 	
 	@RequestMapping(value ="/ajax/adminmenu", method=RequestMethod.POST)
 	@ResponseBody
-	public JSONPObject adminMenu(HttpSession session, @RequestParam HashMap<String, Object> param) {
+	public JSONPObject adminMenu(HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
 		JSONPObject result = null;
 		System.out.println("-------------------------------");
 		System.out.println(param.toString());
@@ -77,5 +81,24 @@ public class AdminController {
 		
 		return result;
 		
+	}
+	private HashMap<String, Object> path(HttpServletRequest request) {
+		HashMap<String, Object> result = new HashMap<String, Object>();
+		String requestMapping = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
+		String[] pathList = requestMapping.split("/");
+		String path = "";
+		
+		for (int i = 1; i < pathList.length ; i ++) {
+			if (i == pathList.length-1) {
+				String MenuName = adminService.getPath(pathList[i]);
+				path += MenuName;
+				result.put("MenuName",MenuName);
+			}
+			else {
+				path += adminService.getPath(pathList[i])+">";
+			}
+		}
+		result.put("path", path);
+		return result;
 	}
 }

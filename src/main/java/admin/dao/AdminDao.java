@@ -27,5 +27,11 @@ public class AdminDao {
 	{
 		return session.selectList("COMM.getCategoryList", param);
 	}
+
+
+	public String getPath(String a)
+	{
+		return session.selectOne("COMM.getPath", a);
+	}
 	
 }

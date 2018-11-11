@@ -18,18 +18,63 @@
 	
 	<select id="getMenuList" parameterType="HashMap" resultType="HashMap">
 		SELECT
-			*
+			  A.SEQ
+			, A.CATEGORYCODE
+			, A.CATEGORYNAME
+			, A.CODE
+			, A.NAME
+			, A.LINK
+			, A.MENULEVEL
+			, A.PARENTCODE
+			, A.PARENTNAME
+			, A.USEYN
+			, A.ORDERSEQ
+			, A.TEXT
+			, A.CREATEUSER
+			, A.CREATEDATE
+			, A.UPDATEUSER
+			, A.UPDATEDATE
+			, A.AUTH
 		FROM
 			AKATSUKIRIN.MENU A JOIN AKATSUKIRIN.CATEGORY B ON A.CATEGORYCODE = B.CODE 
 		WHERE 1=1
+		ORDER BY B.SEQ, A.ORDERSEQ, A.SEQ
 	</select>
 	
 	<select id="getCategoryList" parameterType="HashMap" resultType="HashMap">
 		SELECT
-			*
+			  SEQ
+			, CODE
+			, NAME
+			, LINK
+			, USEYN
+			, CREATEUSER
+			, CREATEDATE
+			, UPDATEUSER
+			, UPDATEDATE
 		FROM
 			AKATSUKIRIN.CATEGORY
 		WHERE 1=1
+		ORDER BY SEQ
 	</select>
 	
+	<select id="getPath" parameterType="String" resultType="String">
+		SELECT 
+			NAME 
+		FROM(
+			SELECT 
+				CODE
+				, NAME
+			FROM
+				AKATSUKIRIN.CATEGORY
+			UNION
+			SELECT 
+				  CODE
+				, NAME
+			FROM
+				AKATSUKIRIN.MENU
+		)
+		WHERE 1=1
+		AND CODE = UPPER(#{value})
+	</select>
 </mapper>

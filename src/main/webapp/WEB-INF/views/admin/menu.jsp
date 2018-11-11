@@ -4,14 +4,13 @@
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>
-			${selMenu } <small></small>
-		</h1>
-		<ol class="breadcrumb">
-			<li><a href="#"><i class="fa fa-dashboard"></i>
-					${selMenuCategory }</a></li>
-			<li class="active">${selMenu }</li>
-		</ol>
+	   <h1>
+        ${path.MenuName }
+       <!--  <small>Optional description</small> -->
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> ${path.path }</a></li>
+      </ol>
 	</section>
 	<!-- Main content -->
 	<section class="content container-fluid">
@@ -37,12 +36,22 @@
 									<tr role="row">
 										<th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Delete</th>
 										<th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SEQ">SEQ</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuName">메뉴 이름</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuLevel">메뉴 레벨</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuCategory">메뉴 카테고리</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuLink">메뉴 링크</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MenuAuth">메뉴 권한</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="UseYn">메뉴 사용여부</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CATEGORYCODE">카테고리 코드</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CATEGORYNAME">카테고리명</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CODE">코드</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="NAME">메뉴명</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="LINK">메뉴 링크</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="MENULEVEL">메뉴 레벨</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="PARENTNAME">상위 메뉴명</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="USEYN">사용여부</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="ORDERSEQ">정렬순서</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="AUTH">권한</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="TEXT">기타</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CREATEUSER">생성자</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CREATEDATE">생성일</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="UPDATEUSER">수정자</th>
+										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="UPDATEDATE">수정일</th>
+									
 									</tr>
 								</thead>
 								<tbody>
@@ -56,22 +65,52 @@
 												<input type="text" id="SEQ" name="SEQ" value="${list.SEQ }" tabindex="0">
 											</td>
 											<td>
-												<input type="text" id="MENUNAME" name="MENUNAME" value="${list.MENUNAME }" tabindex="1">
+												<input type="text" id="CATEGORYCODE" name="CATEGORYCODE" value="${list.CATEGORYCODE }" tabindex="1">
 											</td>
 											<td>
-												<input type="text" id="MENULEVEL" name="MENULEVEL" value="${list.MENULEVEL }" tabindex="2">
+												<input type="text" id="CATEGORYNAME" name="CATEGORYNAME" value="${list.CATEGORYNAME }" tabindex="2">
 											</td>
 											<td>
-												<input type="text" id="MENUCATEGORY" name="MENUCATEGORY" value="${list.MENUCATEGORY }" tabindex="3">
+												<input type="text" id="CODE" name="CODE" value="${list.CODE }" tabindex="3">
 											</td>
 											<td>
-												<input type="text" id="MENULINK" name="MENULINK" value="${list.MENULINK }"  tabindex="4">
+												<input type="text" id="NAME" name="NAME" value="${list.NAME }"  tabindex="4">
 											</td>
 											<td>
-												<input type="text" id="MENUAUTH" name="MENUAUTH" value="${list.MENUAUTH }"  tabindex="5">
+												<input type="text" id="LINK" name="LINK" value="${list.LINK }"  tabindex="5">
+											</td>
+											<td>
+												<input type="text" id="MENULEVEL" name="MENULEVEL" value="${list.MENULEVEL }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="PARENTCODE" name="PARENTCODE" value="${list.PARENTCODE }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="PARENTNAME" name="PARENTNAME" value="${list.PARENTNAME }" tabindex="6">
 											</td>
 											<td>
 												<input type="text" id="USEYN" name="USEYN" value="${list.USEYN }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="ORDERSEQ" name="ORDERSEQ" value="${list.ORDERSEQ }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="AUTH" name="AUTH" value="${list.AUTH }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="TEXT" name="TEXT" value="${list.TEXT }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="CREATEUSER" name="CREATEUSER" value="${list.CREATEUSER }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="CREATEDATE" name="CREATEDATE" value="${list.CREATEDATE }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="UPDATEUSER" name="UPDATEUSER" value="${list.UPDATEUSER }" tabindex="6">
+											</td>
+											<td>
+												<input type="text" id="UPDATEDATE" name="UPDATEDATE" value="${list.UPDATEDATE }" tabindex="6">
 											</td>
 										</tr>
 										
