@@ -4,11 +4,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        akatsukirin Admin Main
-        <small>아카츠키린 관리자 메인</small>
+        Memorandum Admin
+        <small>비망록 관리자 페이지</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> main</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>admin > main</a></li>
       </ol>
     </section>
 

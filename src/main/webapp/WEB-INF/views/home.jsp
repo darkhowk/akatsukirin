@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <html lang="en">
 
 <head>
 <meta charset="utf-8" />
-<link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="${pageContext.request.contextPath}/resources/img/apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Memorandum Main</title>
@@ -32,52 +33,14 @@
 			</div>
 			<div class="collapse navbar-collapse justify-content-end backimg" id="navigation" data-nav-image=${pageContext.request.contextPath}/resources/img/main_visual.png">
 				<ul class="navbar-nav">
+					<!-- 컨텐츠들.. -->
 					<li class="nav-item">
-						<a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()"> 
-							<i class="now-ui-icons arrows-1_cloud-download-93"></i>
-							<p>Download</p>
-						</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"> 
-							<i class="now-ui-icons design_app"></i>
-							<p>Components</p>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-							<a class="dropdown-item" href="./index.html"> 
-								<i class="now-ui-icons business_chart-pie-36"></i> 
-								All components
-							</a> 
-							<a class="dropdown-item" target="_blank" href="https://demos.creative-tim.com/now-ui-kit/docs/1.0/getting-started/introduction.html">
-								<i class="now-ui-icons design_bullet-list-67"></i> 
-								Documentation
-							</a>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank"> 
-							<i class="now-ui-icons arrows-1_share-66"></i>
-							<p>Upgrade to PRO</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank"> 
+						<a class="nav-link" rel="tooltip" title="Follow on Twitter" data-placement="bottom" href="https://twitter.com/tsukirin0329" target="_blank"> 
 							<i class="fab fa-twitter"></i>
 							<p class="d-lg-none d-xl-none">Twitter</p>
 						</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" rel="tooltip" title="Like us on Facebook" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank"> 
-							<i class="fab fa-facebook-square"></i>
-							<p class="d-lg-none d-xl-none">Facebook</p>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank"> 
-						<i class="fab fa-instagram"></i>
-							<p class="d-lg-none d-xl-none">Instagram</p>
-						</a>
-					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -97,19 +60,20 @@
 			<div class="container">
 				<nav>
 					<ul>
+						<!-- 현재 선택 컨텐츠 공식 홈페이지 등등.. 일단 아카츠키린 공식 홈페이지등으로.. -->
 						<li>
-							<a href="https://www.creative-tim.com"> 
-								Creative Tim 
+							<a href="http://www.akatsukirin.com/"> 
+								아카츠키린 공식 홈페이지
 							</a>
 						</li>
 						<li>
-							<a href="http://presentation.creative-tim.com"> 
-								About Us 
+							<a href="https://twitter.com/tsukirin0329"> 
+								아카츠키린 공식 트위터
 							</a>
 						</li>
 						<li>
-							<a href="http://blog.creative-tim.com"> 
-								Blog 
+							<a href="https://www.youtube.com/channel/UCXcJVQlczdNJX5LAwvOvENA"> 
+								아카츠키린 공식 유튜브
 							</a>
 						</li>
 					</ul>
@@ -159,7 +123,7 @@
               randomnum = Math.random() * 0xffffff; // 랜덤하게 16진수 뽑기
               randomnum = parseInt(randomnum); // 정수로 변환
               randomnum = randomnum.toString(16);
-              $("#navigation").css({"background":"url(${pageContext.request.contextPath}/resources/img/main_visual.png)");
+              $("#navigation").css({"background":"'${pageContext.request.contextPath}/resources/img/main_visual.png'");
 
           },5000); // 5초마다 실행 (100 = 0.1초, 1000 = 1초)
 		});

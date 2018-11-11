@@ -9,44 +9,27 @@
 			, B.LINK || A.LINK AS LINK
 			, A.MENULEVEL
 		FROM
-			MENU A JOIN CATEGORY B ON A.CATEGORYCODE = B.CODE 
+			AKATSUKIRIN.MENU A JOIN AKATSUKIRIN.CATEGORY B ON A.CATEGORYCODE = B.CODE 
 		WHERE 1=1
 			AND A.USEYN = 'Y'
-			<if test="menuLevel == 0">
 			AND A.PARENTCODE IS NULL
-			</if>
-			<if test="menuLevel != 0">
-			AND A.PARENTCODE IS NOT NULL
-			</if>
+			AND A.CATEGORYCODE = UPPER(#{category})
 	</select>
 	
-	<select id="getAdminMenuList" parameterType="HashMap" resultType="HashMap">
+	<select id="getMenuList" parameterType="HashMap" resultType="HashMap">
 		SELECT
-				*
-		FROM (
-				SELECT
-						  A.*
-						, ROWNUM AS RNUM
-						, COUNT (*) OVER() AS TOTCONT
-				FROM (
-						SELECT
-							  SEQ
-							, MENUNAME
-							, MENULEVEL
-							, MENUCATEGORY
-							, MENULINK
-							, MENUAUTH
-							, USEYN
-						FROM 
-							MENU
-						WHERE 1=1	
-						AND MENUGBN ='A'
-						ORDER BY SEQ ASC
-					) A
-			)
-    	WHERE 1=1
-    		<![CDATA[
-    			AND RNUM >= #{startCount} AND RNUM <= #{endCount}
-    		]]>
+			*
+		FROM
+			AKATSUKIRIN.MENU A JOIN AKATSUKIRIN.CATEGORY B ON A.CATEGORYCODE = B.CODE 
+		WHERE 1=1
 	</select>
+	
+	<select id="getCategoryList" parameterType="HashMap" resultType="HashMap">
+		SELECT
+			*
+		FROM
+			AKATSUKIRIN.CATEGORY
+		WHERE 1=1
+	</select>
+	
 </mapper>

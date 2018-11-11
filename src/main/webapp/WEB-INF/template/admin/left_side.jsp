@@ -1,19 +1,24 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%-- <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%> --%>
-<aside class="main-sidebar">
-<script type="text/javascript">
-$(document).ready(function() {
-	$(".menu").click(function(){
-		$("#admin > #selMenu").val(this.getAttribute("no"));
-		$('#admin').attr("method","POST").attr("action", this.getAttribute("link")).submit();
-	});
-});
-</script>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
       <!-- search form (Optional) -->
-      <!-- <form action="#" method="get" class="sidebar-form">
+      <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -21,24 +26,14 @@ $(document).ready(function() {
               </button>
             </span>
         </div>
-      </form> -->
+      </form>
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">${id }</li>
-        <!-- Optionally, you can add icons to the links -->
-        <form id="admin" >
-        	<input type="hidden" id="selMenu" name="selMenu">
-        </form>
-        <c:forEach items="${mainMenu }" var="L1">
-        		<li class="treeview">
-		          <a href="#" class="menu" link="${L1.LINK }" >${L1.NAME }
-		            <span class="pull-right-container">
-		                <i class="fa fa-angle-left pull-right"></i>
-		              </span>
-	              </a>
-		        </li>
+        <li class="header">HEADER</li>
+        <c:forEach var="menu" items="${menu }">
+        	<li class="active"><a href=${menu.LINK }><i class="fa fa-link"></i> <span>${menu.NAME }</span></a></li>
         </c:forEach>
       </ul>
       <!-- /.sidebar-menu -->
