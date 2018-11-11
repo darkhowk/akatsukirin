@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <definition name="admin-template" template="/WEB-INF/template/admin/base.jsp">
+    	<put-attribute name="title" value="akatsukirin Admin 메인페이지" />
+        <put-attribute name="header" value="/WEB-INF/template/admin/header.jsp" />
+        <put-attribute name="left-side" value="/WEB-INF/template/admin/left_side.jsp" />
+        <put-attribute name="footer" value="/WEB-INF//template/admin/footer.jsp" />
+    </definition>
+    
+     <definition name="admin/*" extends="admin-template">
+        <put-attribute name="content" value="/WEB-INF/views/admin/{1}.jsp" />
+    </definition>
+    
+    <definition name="admin/*/*" extends="admin-template">
+        <put-attribute name="content" value="/WEB-INF/views/admin/{1}/{2}.jsp" />
+    </definition>
+
+	<!-- 산미포 추가 -->
+   <definition name="oni-template" template="/WEB-INF/template/oni/base.jsp">
+    	<put-attribute name="title" value="산소미포함 메인페이지" />
+        <put-attribute name="header" value="/WEB-INF/template/oni/header.jsp" />
+        <put-attribute name="left-side" value="/WEB-INF/template/oni/left_side.jsp" />
+        <put-attribute name="footer" value="/WEB-INF//template/oni/footer.jsp" />
+    </definition>
+    
+     <definition name="oni/*" extends="oni-template">
+        <put-attribute name="content" value="/WEB-INF/views/oni/{1}.jsp" />
+    </definition>
+    
+    <definition name="oni/*/*" extends="oni-template">
+        <put-attribute name="content" value="/WEB-INF/views/oni/{1}/{2}.jsp" />
+    </definition>
+
+</tiles-definitions>
