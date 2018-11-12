@@ -38,7 +38,7 @@ public class AdminController {
 		logger.info("Welcome Memorandum Admin Main !");
 		
 		param.put("category", "admin");
-		List<HashMap<String, Object>> menu = adminService.getMenu(param);
+		List<LinkedHashMap<String, Object>> menu = adminService.getMenu(param);
 		//model.addAttribute("id", param.get("id"));
 		model.addAttribute("menu", adminMenu());
 		model.addAttribute("path", path(request));
@@ -77,10 +77,10 @@ public class AdminController {
 		return result; 
 	}
 	
-	private List<HashMap<String, Object>> adminMenu(){
+	private List<LinkedHashMap<String, Object>> adminMenu(){
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("category", "admin");
-		List<HashMap<String, Object>> result = adminService.getMenu(param);
+		List<LinkedHashMap<String, Object>> result = adminService.getMenu(param);
 		
 		return result;
 		

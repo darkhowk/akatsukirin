@@ -27,7 +27,7 @@ public class AdminServiceImpl implements AdminService{
 	private AdminDao adminDao;
 
 	@Override
-	public List<HashMap<String, Object>> getMenu(HashMap<String, Object> param) {
+	public List<LinkedHashMap<String, Object>> getMenu(HashMap<String, Object> param) {
 		return adminDao.getMenu(param);
 	}
 
@@ -44,13 +44,11 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public HashMap<String, Object> getCategoryList(HashMap<String, Object> param) throws JsonProcessingException {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		List<HashMap<String, Object>> data = adminDao.getCategoryList(param);
+		List<LinkedHashMap<String, Object>> data = adminDao.getCategoryList(param);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true);
 		HashMap<String, Object> map = data.get(0);
-		System.out.println("1111111111111111111");
-		System.out.println(mapper.writeValueAsString(data));
 		Set key = map.keySet();
 		System.out.println(key.toString());
 		Iterator iterator = key.iterator();
