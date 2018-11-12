@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.HandlerMapping;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
 import admin.service.AdminService;
 
 @Controller
@@ -36,7 +38,7 @@ public class AdminController {
 		logger.info("Welcome Memorandum Admin Main !");
 		
 		param.put("category", "admin");
-		List<LinkedHashMap<String, Object>> menu = adminService.getMenu(param);
+		List<HashMap<String, Object>> menu = adminService.getMenu(param);
 		//model.addAttribute("id", param.get("id"));
 		model.addAttribute("menu", adminMenu());
 		model.addAttribute("path", path(request));
@@ -56,7 +58,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/category")
-	public String category(Model model, HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
+	public String category(Model model, HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) throws JsonProcessingException {
 		HashMap<String, Object> data = adminService.getCategoryList(param);
 		model.addAttribute("data", data);
 		model.addAttribute("menu", adminMenu());
@@ -75,10 +77,10 @@ public class AdminController {
 		return result; 
 	}
 	
-	private List<LinkedHashMap<String, Object>> adminMenu(){
+	private List<HashMap<String, Object>> adminMenu(){
 		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("category", "admin");
-		List<LinkedHashMap<String, Object>> result = adminService.getMenu(param);
+		List<HashMap<String, Object>> result = adminService.getMenu(param);
 		
 		return result;
 		

@@ -20,7 +20,7 @@
     </section>
 
     <section class="content container-fluid">
-   <div id="grid"></div>
+   		<div id="grid"></div>
 		<%-- <div class="box">
 			<div class="box-header">
 				<button type="button" class="btn btn-primary pull-right add">추가</button>
@@ -107,111 +107,14 @@
 	} 
 </style>
 <script type="text/javascript" class="code-js">
-
+var data = ${data.list};
+var col = ${data.column};
+var colData ="";
   var grid = new tui.Grid({
       el: $('#grid'),
-      scrollX: false,
-      scrollY: false,
-      columns: [
-          {
-              title: 'Name',
-              name: 'name',
-              onBeforeChange: function(ev){
-                  console.log('Before change:' + ev);
-              },
-              onAfterChange: function(ev){
-                  console.log('After change:' + ev);
-              },
-              editOptions: {
-                  type: 'text',
-                  useViewMode: true
-              }
-          },
-          {
-              title: 'Artist',
-              name: 'artist',
-              onBeforeChange: function(ev){
-                  console.log('Before change:' + ev);
-                  ev.stop();
-              },
-              onAfterChange: function(ev){
-                  console.log('After change:' + ev);
-              },
-              editOptions: {
-                  type: 'text',
-                  maxLength: 10,
-                  useViewMode: false
-              }
-          },
-          {
-              title: 'Type',
-              name: 'typeCode',
-              onBeforeChange: function(ev){
-                  console.log('Before change:' + ev);
-              },
-              onAfterChange: function(ev){
-                  console.log('After change:' + ev);
-              },
-              editOptions: {
-                  type: 'select',
-                  listItems: [
-                      { text: 'Deluxe', value: '1' },
-                      { text: 'EP', value: '2' },
-                      { text: 'Single', value: '3' }
-                  ],
-                  useViewMode: true
-              }
-          },
-          {
-              title: 'Genre',
-              name: 'genreCode',
-              onBeforeChange: function(ev){
-                  console.log('Before change:' + ev);
-              },
-              onAfterChange: function(ev){
-                  console.log('After change:' + ev);
-              },
-              editOptions: {
-                  type: 'checkbox',
-                  listItems: [
-                      { text: 'Pop', value: '1' },
-                      { text: 'Rock', value: '2' },
-                      { text: 'R&B', value: '3' },
-                      { text: 'Electronic', value: '4' },
-                      { text: 'etc.', value: '5' }
-                  ],
-                  useViewMode: true
-              },
-              copyOptions: {
-                  useListItemText: true // when this option is used, the copy value is concatenated text
-              }
-          },
-          {
-              title: 'Grade',
-              name: 'grade',
-              onBeforeChange: function(ev){
-                  console.log('Before change:' + ev);
-              },
-              onAfterChange: function(ev){
-                  console.log('After change:' + ev);
-              },
-              copyOptions: {
-                  useListItemText: true
-              },
-              editOptions: {
-                  type: 'radio',
-                  listItems: [
-                      { text: '★☆☆☆☆', value: '1' },
-                      { text: '★★☆☆☆', value: '2' },
-                      { text: '★★★☆☆', value: '3' },
-                      { text: '★★★★☆', value: '4' },
-                      { text: '★★★★★', value: '5' }
-                  ],
-                  useViewMode: true
-              }
-          }
-      ]
+      scrollX: true,
+      scrollY: true,
+      columns:  col 
   });
-
-  grid.setData();
+  grid.setData(data);
   </script>
