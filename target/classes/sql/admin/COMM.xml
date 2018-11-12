@@ -3,7 +3,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="COMM">
-	<select id="getMenu" parameterType="HashMap" resultType="HashMap">
+	<select id="getMenu" parameterType="HashMap" resultType="java.util.LinkedHashMap">
 		SELECT
 			  A.NAME
 			, B.LINK || A.LINK AS LINK
@@ -23,7 +23,7 @@
 			, A.CATEGORYNAME
 			, A.CODE
 			, A.NAME
-			, A.LINK
+			<!-- , A.LINK -->
 			, A.MENULEVEL
 			, A.PARENTCODE
 			, A.PARENTNAME
@@ -31,9 +31,9 @@
 			, A.ORDERSEQ
 			, A.TEXT
 			, A.CREATEUSER
-			, A.CREATEDATE
+			, TO_CHAR(A.CREATEDATE, 'YYYY-MM-DD') AS CREATEDATE
 			, A.UPDATEUSER
-			, A.UPDATEDATE
+			, TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD') AS UPDATEDATE
 			, A.AUTH
 		FROM
 			AKATSUKIRIN.MENU A JOIN AKATSUKIRIN.CATEGORY B ON A.CATEGORYCODE = B.CODE 
@@ -46,12 +46,12 @@
 			  SEQ
 			, CODE
 			, NAME
-			, LINK
+			<!-- , LINK -->
 			, USEYN
 			, CREATEUSER
-			, CREATEDATE
+			, TO_CHAR(CREATEDATE, 'YYYY-MM-DD') AS CREATEDATE
 			, UPDATEUSER
-			, UPDATEDATE
+			, TO_CHAR(UPDATEDATE, 'YYYY-MM-DD') AS UPDATEDATE
 		FROM
 			AKATSUKIRIN.CATEGORY
 		WHERE 1=1

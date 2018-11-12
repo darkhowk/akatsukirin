@@ -1,11 +1,12 @@
 package admin.service;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public interface AdminService {
 
-	List<HashMap<String, Object>> getMenu(HashMap<String, Object> param);
+	List<LinkedHashMap<String, Object>> getMenu(HashMap<String, Object> param);
 
 	HashMap<String, Object> getMenuList(HashMap<String, Object> param);
 

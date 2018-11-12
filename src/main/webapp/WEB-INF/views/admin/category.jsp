@@ -1,5 +1,11 @@
- <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/tui-grid.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone.js"></script>
+<script type="text/javascript" src="https://uicdn.toast.com/tui.code-snippet/v1.4.0/tui-code-snippet.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/tui-grid.js"></script>
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -14,15 +20,15 @@
     </section>
 
     <section class="content container-fluid">
-		<div class="box">
+   <div id="grid"></div>
+		<%-- <div class="box">
 			<div class="box-header">
 				<button type="button" class="btn btn-primary pull-right add">추가</button>
                 <button type="button" class="btn btn-primary pull-right submit">저장</button>
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
-				<div id="example2_wrapper"
-					class="dataTables_wrapper form-inline dt-bootstrap">
+				<div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
 					<div class="row">
 						<div class="col-sm-6"></div>
 						<div class="col-sm-6"></div>
@@ -89,7 +95,7 @@
 				</div>
 			</div>
 			<!-- /.box-body -->
-		</div>
+		</div> --%>
 	</section>
   </div>
   <!-- /.content-wrapper -->
@@ -100,3 +106,112 @@
  		background: transparent;
 	} 
 </style>
+<script type="text/javascript" class="code-js">
+
+  var grid = new tui.Grid({
+      el: $('#grid'),
+      scrollX: false,
+      scrollY: false,
+      columns: [
+          {
+              title: 'Name',
+              name: 'name',
+              onBeforeChange: function(ev){
+                  console.log('Before change:' + ev);
+              },
+              onAfterChange: function(ev){
+                  console.log('After change:' + ev);
+              },
+              editOptions: {
+                  type: 'text',
+                  useViewMode: true
+              }
+          },
+          {
+              title: 'Artist',
+              name: 'artist',
+              onBeforeChange: function(ev){
+                  console.log('Before change:' + ev);
+                  ev.stop();
+              },
+              onAfterChange: function(ev){
+                  console.log('After change:' + ev);
+              },
+              editOptions: {
+                  type: 'text',
+                  maxLength: 10,
+                  useViewMode: false
+              }
+          },
+          {
+              title: 'Type',
+              name: 'typeCode',
+              onBeforeChange: function(ev){
+                  console.log('Before change:' + ev);
+              },
+              onAfterChange: function(ev){
+                  console.log('After change:' + ev);
+              },
+              editOptions: {
+                  type: 'select',
+                  listItems: [
+                      { text: 'Deluxe', value: '1' },
+                      { text: 'EP', value: '2' },
+                      { text: 'Single', value: '3' }
+                  ],
+                  useViewMode: true
+              }
+          },
+          {
+              title: 'Genre',
+              name: 'genreCode',
+              onBeforeChange: function(ev){
+                  console.log('Before change:' + ev);
+              },
+              onAfterChange: function(ev){
+                  console.log('After change:' + ev);
+              },
+              editOptions: {
+                  type: 'checkbox',
+                  listItems: [
+                      { text: 'Pop', value: '1' },
+                      { text: 'Rock', value: '2' },
+                      { text: 'R&B', value: '3' },
+                      { text: 'Electronic', value: '4' },
+                      { text: 'etc.', value: '5' }
+                  ],
+                  useViewMode: true
+              },
+              copyOptions: {
+                  useListItemText: true // when this option is used, the copy value is concatenated text
+              }
+          },
+          {
+              title: 'Grade',
+              name: 'grade',
+              onBeforeChange: function(ev){
+                  console.log('Before change:' + ev);
+              },
+              onAfterChange: function(ev){
+                  console.log('After change:' + ev);
+              },
+              copyOptions: {
+                  useListItemText: true
+              },
+              editOptions: {
+                  type: 'radio',
+                  listItems: [
+                      { text: '★☆☆☆☆', value: '1' },
+                      { text: '★★☆☆☆', value: '2' },
+                      { text: '★★★☆☆', value: '3' },
+                      { text: '★★★★☆', value: '4' },
+                      { text: '★★★★★', value: '5' }
+                  ],
+                  useViewMode: true
+              }
+          }
+      ]
+  });
+
+  grid.setData();
+  </script>

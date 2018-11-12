@@ -17,11 +17,10 @@
 		<div class="box">
 			<div class="box-header">
 				<h3 class="box-title">${selMenu }</h3>
-				<button type="button" class="btn btn-primary pull-right add">추가</button>
-                <button type="button" class="btn btn-primary pull-right submit">저장</button>
+				
 			</div>
 			<!-- /.box-header -->
-			<div class="box-body">
+			<div class="box-body table-responsive">
 				<div id="example2_wrapper"
 					class="dataTables_wrapper form-inline dt-bootstrap">
 					<div class="row">
@@ -29,14 +28,21 @@
 						<div class="col-sm-6"></div>
 					</div>
 					<div class="row">
-						<div class="col-sm-16">
+						<div class="col-sm-12">
 							<form id="menu">
-							<table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+							<select name="category" >
+								<option id="none" value="">선택</option>
+								<c:forEach items="${category }" var="category">
+									<option id="${category.CODE }" value="${category.CODE }">${category.NAME }</option>
+								</c:forEach>
+							</select>
+								<button type="button" class="btn btn-primary pull-right add">추가</button>
+                				<button type="button" class="btn btn-primary pull-right submit">저장</button>
+							<table id="example2" class="table table-bordered table-striped table-hover dataTable" role="grid" aria-describedby="example2_info">
 								<thead>
 									<tr role="row">
 										<th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="">Delete</th>
 										<th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="SEQ">SEQ</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CATEGORYNAME">카테고리명</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CODE">코드</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="NAME">메뉴명</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="LINK">메뉴 링크</th>
@@ -46,25 +52,17 @@
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="ORDERSEQ">정렬순서</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="AUTH">권한</th>
 										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="TEXT">기타</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CREATEUSER">생성자</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CREATEDATE">생성일</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="UPDATEUSER">수정자</th>
-										<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="UPDATEDATE">수정일</th>
-									
 									</tr>
 								</thead>
 								<tbody>
 										<c:forEach items="${data.list }" var="list">
-										<tr role="row" class="odd">
+										<tr role="row">
 											<td>
 												<input type="checkbox" class="delete">
 												<input type="hidden" id="CURD" name="CURD" value="R">
 											</td>
-											<td class="sorting_1">
+											<td class="sorting_1" >
 												<input type="text" id="SEQ" name="SEQ" value="${list.SEQ }" tabindex="0">
-											</td>
-											<td>
-												<input type="text" id="CATEGORYNAME" name="CATEGORYNAME" value="${list.CATEGORYNAME }" tabindex="2">
 											</td>
 											<td>
 												<input type="text" id="CODE" name="CODE" value="${list.CODE }" tabindex="3">
@@ -93,20 +91,7 @@
 											<td>
 												<input type="text" id="TEXT" name="TEXT" value="${list.TEXT }" tabindex="6">
 											</td>
-											<td>
-												<input type="text" id="CREATEUSER" name="CREATEUSER" value="${list.CREATEUSER }" tabindex="6">
-											</td>
-											<td>
-												<input type="text" id="CREATEDATE" name="CREATEDATE" value="${list.CREATEDATE }" tabindex="6">
-											</td>
-											<td>
-												<input type="text" id="UPDATEUSER" name="UPDATEUSER" value="${list.UPDATEUSER }" tabindex="6">
-											</td>
-											<td>
-												<input type="text" id="UPDATEDATE" name="UPDATEDATE" value="${list.UPDATEDATE }" tabindex="6">
-											</td>
 										</tr>
-										
 										</c:forEach>
 								</tbody>
 							</table>
