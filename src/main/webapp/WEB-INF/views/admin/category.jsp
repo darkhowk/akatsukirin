@@ -18,7 +18,6 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> ${path.path }</a></li>
       </ol>
     </section>
-
     <section class="content container-fluid">
    		<div id="grid"></div>
 		<%-- <div class="box">
