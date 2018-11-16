@@ -74,11 +74,9 @@ public class AdminServiceImpl implements AdminService{
 			JSONObject column = new JSONObject();
 			JSONObject option = new JSONObject();
 			
-			// ±âº»°ª
 			column.put("title", strKey);
 			column.put("name", strKey);
 			
-			// ÄÃ·³º° ¼³Á¤°ª
 			if (strKey.toUpperCase().equals("SEQ")) {
 			}
 			else if (strKey.toUpperCase().contains("CREATE") || strKey.toUpperCase().contains("UPDATE")) {
@@ -88,10 +86,10 @@ public class AdminServiceImpl implements AdminService{
 				ArrayList<JSONObject> list = new ArrayList<JSONObject>();
 				JSONObject listItem1 = new JSONObject();
 				JSONObject listItem2 = new JSONObject();
-				listItem1.put("text", "»ç¿ë");
+				listItem1.put("text", "ì‚¬ìš©");
 				listItem1.put("value", "Y");
 				list.add(listItem1);
-				listItem2.put("text", "¹Ì»ç¿ë");
+				listItem2.put("text", "ë¯¸ì‚¬ìš©");
 				listItem2.put("value", "N");
 				list.add(listItem2);
 				option.put("listItems", list);
@@ -107,7 +105,6 @@ public class AdminServiceImpl implements AdminService{
 		
 		 Gson json = new Gson();
 		 List<String> list = new ArrayList<String>();
-        // Convert the ordered map into an ordered string.
 		 for (LinkedHashMap<String, Object> mapData : data) {
 			 list.add(json.toJson(mapData, LinkedHashMap.class));
 		 }
@@ -159,7 +156,6 @@ public class AdminServiceImpl implements AdminService{
 
 		while(iterator.hasNext()) {
 			String strKey = (String) iterator.next();
-			// ÇöÀç´Â ±×³É ÇÏµåÄÚµù ÃßÈÄ session or Spring Security¿¡¼­ °¡Á®¿Ã ¿¹ÂÄ
 			data.put("USER_ID", "darkhowk");
 			if (strKey.contains("created")) {
 				
@@ -179,7 +175,6 @@ public class AdminServiceImpl implements AdminService{
 			}
 		}
 
-		// Áßº¹Á¦°Å 
 		for (int i = 0; i < tmpInsert.size(); i++) {
              if (!insert.contains(tmpInsert.get(i))) {
             	 insert.add(tmpInsert.get(i));
