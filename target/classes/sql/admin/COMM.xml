@@ -13,7 +13,7 @@
 		WHERE 1=1
 			AND A.USEYN = 'Y'
 			AND A.PARENTCODE IS NULL
-			AND A.CATEGORYCODE = UPPER(#{category})
+			AND A.CATEGORYCODE = UPPER(#{category })
 	</select>
 	
 	<select id="getMenuList" parameterType="HashMap" resultType="java.util.LinkedHashMap">
@@ -23,7 +23,7 @@
 			, A.CATEGORYNAME
 			, A.CODE
 			, A.NAME
-			<!-- , A.LINK -->
+			, A.LINK
 			, A.MENULEVEL
 			, A.PARENTCODE
 			, A.PARENTNAME
@@ -46,7 +46,7 @@
 			  SEQ
 			, CODE
 			, NAME
-			<!-- , LINK -->
+			, LINK
 			, USEYN
 			, CREATEUSER
 			, TO_CHAR(CREATEDATE, 'YYYY-MM-DD') AS CREATEDATE
@@ -75,6 +75,49 @@
 				AKATSUKIRIN.MENU
 		)
 		WHERE 1=1
-		AND CODE = UPPER(#{value})
+		AND CODE = UPPER(#{value })
 	</select>
+	
+	<update id="insertCategory" parameterType="HashMap">
+		INSERT 
+			INTO 
+				AKATSUKIRIN.CATEGORY
+			(
+				  SEQ
+				, CODE
+				, NAME
+				, LINK
+				, USEYN
+				, CREATEUSER
+				, CREATEDATE
+				, UPDATEUSER
+				, UPDATEDATE
+			)
+			VALUES 
+			(
+				  CATEGORY_SEQ.NEXTVAL
+				, #{CODE }
+				, #{NAME }
+				, #{LINK }
+				, #{USEYN }
+				, #{USER_ID }
+				, SYSTIMESTAMP
+				, #{USER_ID }
+				, SYSTIMESTAMP 
+			)	
+	</update>
+	
+	<update id="updateCategory" parameterType="HashMap">
+		UPDATE
+			AKATSUKIRIN.CATEGORY
+		SET
+			  CODE = #{CODE }
+		 	, NAME = #{NAME }
+		 	, LINK = #{LINK }
+			, USEYN = #{USEYN }
+			, UPDATEUSER = #{USER_ID }
+			, UPDATEDATE = SYSTIMESTAMP 
+			)	
+	</update>
+	
 </mapper>

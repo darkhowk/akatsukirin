@@ -1,5 +1,5 @@
 <!-- jQuery 3 -->
-<script src="${pageContext.request.contextPath}/resources/js/core/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="${pageContext.request.contextPath}/resources/js/core/bootstrap.min.js"></script>
 <!-- AdminLTE App -->

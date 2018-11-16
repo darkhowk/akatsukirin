@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.codehaus.jackson.map.util.JSONPObject;
+import org.json.JSONObject;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 public interface AdminService {
@@ -15,5 +18,7 @@ public interface AdminService {
 	HashMap<String, Object> getCategoryList(HashMap<String, Object> param) throws JsonProcessingException;
 
 	String getPath(String a);
+
+	HashMap<String, Object> setCategoryData(HashMap<String, Object> param);
 
 }

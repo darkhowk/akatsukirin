@@ -37,5 +37,17 @@ public class AdminDao extends CommSession{
 	{
 		return session.selectOne("COMM.getPath", a);
 	}
-	
+
+
+	public int insertCategory(HashMap<String, Object> oneData) {
+		System.out.println("dao");
+		System.out.println(oneData.toString());
+		return session.insert("COMM.insertCategory", oneData);
+	}
+
+
+	public int updateCategory(HashMap<String, Object> oneData) {
+		return session.update("COMM.updateCategory", oneData);
+	}
+
 }

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.util.JSONPObject;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -67,13 +68,10 @@ public class AdminController {
 		return "admin/category";
 	}
 	
-	@RequestMapping(value ="/ajax/adminmenu", method=RequestMethod.POST)
+	@RequestMapping(value ="/category/ajax", method=RequestMethod.POST)
 	@ResponseBody
-	public JSONPObject adminMenu(HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
-		JSONPObject result = null;
-		System.out.println("-------------------------------");
-		System.out.println(param.toString());
-		
+	public HashMap<String, Object> adminMenu(HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
+		HashMap<String, Object> result = adminService.setCategoryData(param);
 		return result; 
 	}
 	
