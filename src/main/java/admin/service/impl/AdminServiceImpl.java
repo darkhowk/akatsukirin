@@ -31,8 +31,6 @@ public class AdminServiceImpl implements AdminService{
 
 	@Resource(name="adminDao")
 	private AdminDao adminDao;
-
-	private HttpSession session;
 	
 	@Override
 	public List<LinkedHashMap<String, Object>> getMenu(HashMap<String, Object> param) {
@@ -42,7 +40,6 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public HashMap<String, Object> getMenuList(HashMap<String, Object> param) {
 		HashMap<String, Object> result = getData(adminDao.getMenuList(param));
-		
 		result.put("param", param);
 		return result;
 	}
@@ -51,7 +48,6 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public HashMap<String, Object> getCategoryList(HashMap<String, Object> param) throws JsonProcessingException {
 		HashMap<String, Object> result = getData(adminDao.getCategoryList(param));
-		
 		result.put("param", param);
 		return result;
 	}
@@ -115,39 +111,43 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public HashMap<String, Object> setCategoryData(HashMap<String, Object> param) {
+	public HashMap<String, Object> setMenuData(HashMap<String, Object> param) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
-		int insert = 0;
-		int update = 0;
-		HashMap<String, Object> data = setParamToMap(param);
+		int count = 0;
 		
-		List<HashMap<String,Object>> insertList = (List<HashMap<String,Object>>)data.get("insert");
-		if (insertList.size() > 0) {
-			for (HashMap<String, Object> insertData : insertList) {
-				insert += adminDao.insertCategory(insertData);
+		List<HashMap<String,Object>> data = (List<HashMap<String, Object>>) setParamToMap(param);
+		if (data.size() > 0) {
+			for (HashMap<String, Object> rowData : data) {
+				 count += adminDao.mergeIntoMenu(rowData);
 			}
 		}
 		
-		List<HashMap<String,Object>> updateList = (List<HashMap<String,Object>>)data.get("update");
-		if (updateList.size() > 0) {
-			for (HashMap<String, Object> updateData : updateList) {
-				update += adminDao.updateCategory(updateData);
-			}
-		}
-		
-		result.put("insert", insert);
-		result.put("update", update);
-		
+		result.put("result", count);
 		return result;
 	}
 	
-	private HashMap<String, Object> setParamToMap(HashMap<String, Object> param){
+	@Override
+	public HashMap<String, Object> setCategoryData(HashMap<String, Object> param) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
+		int count = 0;
 		
-		List<HashMap<String,Object>> insert = new ArrayList<HashMap<String,Object>>();
-		List<HashMap<String,Object>> tmpInsert = new ArrayList<HashMap<String,Object>>();
-		List<HashMap<String,Object>> update = new ArrayList<HashMap<String,Object>>();
-		List<HashMap<String,Object>> tmpUpdate = new ArrayList<HashMap<String,Object>>();
+		List<HashMap<String,Object>> data = (List<HashMap<String, Object>>) setParamToMap(param);
+		if (data.size() > 0) {
+			for (HashMap<String, Object> rowData : data) {
+				 count += adminDao.mergeIntoCategory(rowData);
+			}
+		}
+		
+		
+		result.put("result", count);
+		return result;
+	}
+	
+	private List<HashMap<String,Object>> setParamToMap(HashMap<String, Object> param){
+		List<HashMap<String,Object>> result = new ArrayList<HashMap<String,Object>>();
+		
+		List<HashMap<String,Object>> Listdata = new ArrayList<HashMap<String,Object>>();
+		List<HashMap<String,Object>> tmpData = new ArrayList<HashMap<String,Object>>();
 		
 		HashMap<String, Object> map = param;
 		Set key = map.keySet();
@@ -157,37 +157,21 @@ public class AdminServiceImpl implements AdminService{
 		while(iterator.hasNext()) {
 			String strKey = (String) iterator.next();
 			data.put("USER_ID", "darkhowk");
-			if (strKey.contains("created")) {
-				
 				int num = Integer.parseInt(strKey.substring(strKey.indexOf("[")+1, strKey.indexOf("]")));
 				String dataKey = strKey.substring(strKey.lastIndexOf("[")+1, strKey.lastIndexOf("]"));
 				Object dataValue = param.get(strKey);
 			
 				data.put(dataKey, dataValue);
-				tmpInsert.add(num , data);
-			}else if (strKey.contains("updated")) {
-				int num = Integer.parseInt(strKey.substring(strKey.indexOf("[")+1, strKey.indexOf("]")));
-				String dataKey = strKey.substring(strKey.lastIndexOf("[")+1, strKey.lastIndexOf("]"));
-				Object dataValue = param.get(strKey);
-				
-				data.put(dataKey, dataValue);
-				tmpUpdate.add(num , data);
-			}
+				tmpData.add(num , data);
 		}
 
-		for (int i = 0; i < tmpInsert.size(); i++) {
-             if (!insert.contains(tmpInsert.get(i))) {
-            	 insert.add(tmpInsert.get(i));
+		for (int i = 0; i < tmpData.size(); i++) {
+             if (!Listdata.contains(tmpData.get(i))) {
+            	 Listdata.add(tmpData.get(i));
              }
          }
-		for (int i = 0; i < tmpUpdate.size(); i++) {
-            if (!update.contains(tmpUpdate.get(i))) {
-            	update.add(tmpUpdate.get(i));
-            }
-        }
 
-		result.put("insert", insert);
-		result.put("update", update);
+		result.addAll(Listdata);
 		return result;
 	}
 }

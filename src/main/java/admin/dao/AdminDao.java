@@ -39,15 +39,12 @@ public class AdminDao extends CommSession{
 	}
 
 
-	public int insertCategory(HashMap<String, Object> oneData) {
-		System.out.println("dao");
-		System.out.println(oneData.toString());
-		return session.insert("COMM.insertCategory", oneData);
+	public int mergeIntoCategory(HashMap<String, Object> rowData) {
+		return session.update("COMM.mergeIntoCategory", rowData);
 	}
 
-
-	public int updateCategory(HashMap<String, Object> oneData) {
-		return session.update("COMM.updateCategory", oneData);
+	public int mergeIntoMenu(HashMap<String, Object> rowData) {
+		return session.update("COMM.mergeIntoMenu", rowData);
 	}
 
 }

@@ -70,8 +70,15 @@ public class AdminController {
 	
 	@RequestMapping(value ="/category/ajax", method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String, Object> adminMenu(HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
+	public HashMap<String, Object> adminCategory(HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
 		HashMap<String, Object> result = adminService.setCategoryData(param);
+		return result; 
+	}
+	
+	@RequestMapping(value ="/menu/ajax", method=RequestMethod.POST)
+	@ResponseBody
+	public HashMap<String, Object> adminMenu(HttpSession session, @RequestParam HashMap<String, Object> param, HttpServletRequest request) {
+		HashMap<String, Object> result = adminService.setMenuData(param);
 		return result; 
 	}
 	

@@ -12,7 +12,7 @@
 			AKATSUKIRIN.MENU A JOIN AKATSUKIRIN.CATEGORY B ON A.CATEGORYCODE = B.CODE 
 		WHERE 1=1
 			AND A.USEYN = 'Y'
-			AND A.PARENTCODE IS NULL
+			AND A.PARENTCODE = 'NONE'
 			AND A.CATEGORYCODE = UPPER(#{category })
 	</select>
 	
@@ -21,12 +21,13 @@
 			  A.SEQ
 			, A.CATEGORYCODE
 			, A.CATEGORYNAME
+			, A.PARENTCODE
+			, A.PARENTNAME
 			, A.CODE
 			, A.NAME
 			, A.LINK
+			, A.AUTH
 			, A.MENULEVEL
-			, A.PARENTCODE
-			, A.PARENTNAME
 			, A.USEYN
 			, A.ORDERSEQ
 			, A.TEXT
@@ -34,7 +35,6 @@
 			, TO_CHAR(A.CREATEDATE, 'YYYY-MM-DD') AS CREATEDATE
 			, A.UPDATEUSER
 			, TO_CHAR(A.UPDATEDATE, 'YYYY-MM-DD') AS UPDATEDATE
-			, A.AUTH
 		FROM
 			AKATSUKIRIN.MENU A JOIN AKATSUKIRIN.CATEGORY B ON A.CATEGORYCODE = B.CODE 
 		WHERE 1=1
@@ -78,46 +78,105 @@
 		AND CODE = UPPER(#{value })
 	</select>
 	
-	<update id="insertCategory" parameterType="HashMap">
-		INSERT 
-			INTO 
-				AKATSUKIRIN.CATEGORY
-			(
-				  SEQ
-				, CODE
-				, NAME
-				, LINK
-				, USEYN
-				, CREATEUSER
-				, CREATEDATE
-				, UPDATEUSER
-				, UPDATEDATE
-			)
-			VALUES 
-			(
-				  CATEGORY_SEQ.NEXTVAL
-				, #{CODE }
-				, #{NAME }
-				, #{LINK }
-				, #{USEYN }
-				, #{USER_ID }
-				, SYSTIMESTAMP
-				, #{USER_ID }
-				, SYSTIMESTAMP 
-			)	
+	<update id="mergeIntoCategory" parameterType="HashMap">
+		MERGE INTO 
+			AKATSUKIRIN.CATEGORY
+			USING DUAL
+			ON ( CODE = #{CODE} )
+		WHEN MATCHED THEN
+			UPDATE
+			SET
+			 	  NAME = #{NAME }
+			 	, LINK = #{LINK }
+				, USEYN = #{USEYN }
+				, UPDATEUSER = #{USER_ID }
+				, UPDATEDATE = SYSTIMESTAMP 
+		WHEN NOT MATCHED THEN
+			INSERT 
+				(
+					  SEQ
+					, CODE
+					, NAME
+					, LINK
+					, USEYN
+					, CREATEUSER
+					, CREATEDATE
+					, UPDATEUSER
+					, UPDATEDATE
+				)
+				VALUES 
+				(
+					  CATEGORY_SEQ.NEXTVAL
+					, #{CODE }
+					, #{NAME }
+					, #{LINK }
+					, #{USEYN }
+					, #{USER_ID }
+					, SYSTIMESTAMP
+					, #{USER_ID }
+					, SYSTIMESTAMP 
+				)	
 	</update>
 	
-	<update id="updateCategory" parameterType="HashMap">
-		UPDATE
-			AKATSUKIRIN.CATEGORY
-		SET
-			  CODE = #{CODE }
-		 	, NAME = #{NAME }
-		 	, LINK = #{LINK }
-			, USEYN = #{USEYN }
-			, UPDATEUSER = #{USER_ID }
-			, UPDATEDATE = SYSTIMESTAMP 
-			)	
+	<update id="mergeIntoMenu" parameterType="HashMap">
+		MERGE INTO 
+			AKATSUKIRIN.MENU
+			USING DUAL
+			ON ( CODE = #{CODE} )
+		WHEN MATCHED THEN
+			UPDATE
+			SET
+			 	  NAME = #{NAME }
+			 	, LINK = #{LINK }
+			 	, MENULEVEL = #{MENULEVEL}
+			 	, PARENTCODE = #{PARENTCODE }
+			 	, PARENTNAME = #{PARENTNAME }
+				, USEYN = #{USEYN }
+				, ORDERSEQ = #{ORDERSEQ }
+				, CATEGORYCODE = #{CATEGORYCODE }
+				, CATEGORYNAME = #{CATEGORYNAME }
+				, AUTH = #{AUTH }
+				, UPDATEUSER = #{USER_ID }
+				, UPDATEDATE = SYSTIMESTAMP 
+		WHEN NOT MATCHED THEN
+			INSERT 
+				(
+					  SEQ
+					, CODE
+					, NAME
+					, LINK
+					, MENULEVEL
+					, PARENTCODE
+					, PARENTNAME
+					, USEYN
+					, ORDERSEQ
+					, CATEGORYCODE
+					, CATEGORYNAME
+					, CREATEUSER
+					, CREATEDATE
+					, UPDATEUSER
+					, UPDATEDATE
+					, AUTH
+				)
+				VALUES 
+				(
+					  MENU_SEQ.NEXTVAL
+					, #{CODE }
+					, #{NAME }
+					, #{LINK }
+					, #{MENULEVEL }
+					, #{PARENTCODE }
+					, #{PARENTNAME }
+					, #{USEYN }
+					, #{ORDERSEQ }
+					, #{CATEGORYCODE }
+					, #{CATEGORYNAME }
+					, #{USER_ID }
+					, SYSTIMESTAMP
+					, #{USER_ID }
+					, SYSTIMESTAMP
+					, #{AUTH }
+				)	
 	</update>
 	
 </mapper>

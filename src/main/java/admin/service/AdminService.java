@@ -21,4 +21,6 @@ public interface AdminService {
 
 	HashMap<String, Object> setCategoryData(HashMap<String, Object> param);
 
+	HashMap<String, Object> setMenuData(HashMap<String, Object> param);
+
 }
